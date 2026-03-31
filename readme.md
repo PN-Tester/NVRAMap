@@ -1,7 +1,7 @@
 # Map EFI Program Settings to NVRAM Key Values
 This tool allows the operator to map possible control values in NVRAM to a given setting managed by an EFI program. The setting value can then be modified to control the underlying feature.
 There are two analysis modes:
-- Mode 1 : Map EFI program settings to NVRAM Variable/Values
+- Mode 1 : Map EFI program settings to NVRAM variables and values
 - Mode 2 : Map NVRAM variable to EFI program settings
   
 The tool is vendor agnostic and works against most modern UEFI implementations. The intended usage is to allow the user to quickly find and modify values related to important security settings when conducting physical penetration tests against UEFI firmware dumps. Once a setting is mapped, it's value can be overwritten and the resultant patched NVRAM can be flashed back onto the target computer's EEPROM chip to control firmware behaviour without requiring access to the pre-boot GUI or triggering a BitLocker recovery.
