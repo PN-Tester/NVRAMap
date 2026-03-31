@@ -14,7 +14,7 @@ To use this tool, extract the firmware from target EEPROM chip. Using UEFITool, 
 
 # Demo (mode 2 - NVRAM to EFI Settings analysis)
 ![](https://github.com/PN-Tester/NVRAMap/blob/main/NVRAM%20TO%20EFI.PNG)
-*The above image shows what settings the target NVRAM variable data controls*
+*The above image shows discovery of what settings the target NVRAM variable data controls*
 
 # Usage
 ```
