@@ -57,10 +57,10 @@ EXAMPLE USAGE:
 ```
 
 # Demo (mode 1 - EFI Settings to NVRAM analysis)
-
+![](https://github.com/PN-Tester/NVRAMap/blob/main/EFI%20TO%20NVRAM.PNG)
 
 # Demo (mode 2 - NVRAM to EFI Settings analysis)
-
+![](https://github.com/PN-Tester/NVRAMap/blob/main/NVRAM%20TO%20EFI.PNG)
 
 # Explanation
 Originally, my methodology for mampping NVRAM data the functionality it controlled involved arduous and time consuming targetted diffing of firmware dumps that matched the desired configuration state for further research. As expected, this method is time consuming and not suitable for large scale fuzzing or discovery of UEFI functionality. Then security researcher Craig Blackie sent me an article he wrote where he used IFRExtractor to determine control variables for Pre-Boot DMA Protection in Dell firmware. His methodology involved extracting the Setup.efi program from the firmware dump and analyzing its HII structures to identify the NVRAM variable store associated with various UI actions (like choosing setting values). In his article, he manually performs the mapping operation through a combination of UEFITools and output from the extractor, arriving at precise offsets in the setup NVRAM variable that control the behaviour of pre-boot DMA countermeasures. I was curious if this technique could be automated and used to map the relationship between arbitrary EFI programs and NVRAM in a vendor agnostic scanner. NVRAMap is the result of this questioning. The present program will use extracted HII data from the specified EFI program to map the settings it manages to NVRAM GUIDs and Keys. It will then automatically parse the specified NVRAM dump and map the settings to their present values. This can occur forward, or in reverse, in situations where an operator has an NVRAM section they are interested in but do not know what the data controls. Finally, the program can be used to modify the discovered setting values, creating a patched NVRAM file in the same directory which can later be used for flashing a target computer's EEPROM via universal programmer.
