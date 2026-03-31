@@ -1,5 +1,5 @@
 # Map EFI Program Settings to NVRAM Key Values
-This tool allows the operator to map possible control values in NVRAM to a given setting managed by an EFI program.
+This tool allows the operator to map possible control values in NVRAM to a given setting managed by an EFI program. The setting value can then be modified to control the underlying feature.
 There are two analysis modes:
 - Mode 1 : Map EFI program settings to NVRAM Variable/Values
 - Mode 2 : Map NVRAM variable to EFI program settings
