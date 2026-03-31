@@ -9,10 +9,12 @@ The tool is vendor agnostic and works against most modern UEFI implementations. 
 To use this tool, extract the firmware from target EEPROM chip. Using UEFITool, select "Extract Body" option to extract the raw NVRAM from your dump, and the efi program you are interested in. Pass both extracted files to NVRAMap and choose one of the two analysis modes to begin automatic relationship discovery.
 
 # Demo (mode 1 - EFI Settings to NVRAM analysis)
-![](https://github.com/PN-Tester/NVRAMap/blob/main/EFI%20to%20NVRAM.PNG))
+![](https://github.com/PN-Tester/NVRAMap/blob/main/EFI%20to%20NVRAM.PNG)
+*The above image shows discovery of where DMA Protection and Intel Virtualization settings are controlled*
 
 # Demo (mode 2 - NVRAM to EFI Settings analysis)
 ![](https://github.com/PN-Tester/NVRAMap/blob/main/NVRAM%20TO%20EFI.PNG)
+*The above image shows what settings the target NVRAM variable data controls*
 
 # Usage
 ```
