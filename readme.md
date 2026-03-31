@@ -4,7 +4,7 @@ There are two analysis modes:
 - Mode 1 : Map EFI program settings to NVRAM Variable/Values
 - Mode 2 : Map NVRAM variable to EFI program settings
   
-The tool is vendor agnostic and works against most modern UEFI implementations. Use it to find mapping for specific terms (DMA, Intel, SecureBoot, etc.) or to dump all possible mappings
+The tool is vendor agnostic and works against most modern UEFI implementations. The intended usage is to allow the user to quickly find and modify values related to important security settings when conducting physical penetration tests against UEFI firmware dumps. Once a setting is mapped, it's value can be overwritten and the resultant patched NVRAM can be flashed back onto the target computer's EEPROM chip to control firmware behaviour without requiring access to the pre-boot GUI and without triggering a BitLocker recovery.
 
 # Demo (mode 1 - EFI Settings to NVRAM analysis)
 ![](https://github.com/PN-Tester/NVRAMap/blob/main/EFI%20to%20NVRAM.PNG))
