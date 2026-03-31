@@ -44,7 +44,8 @@ options:
   --dump-var GUID       Debug: dump all raw NVRAM entries for a given GUID
   --debug               Verbose parsing output
 
-EXAMPLES
+EXAMPLE USAGE:
+
   Mode 1 — Map EFI settings to NVRAM variables (search by keyword):
     nvramap.py -mode 1 -efi Setup.efi -nvram NVRAM.bin -terms VT-d,IOMMU
     nvramap.py -mode 1 -efi Setup.efi -nvram NVRAM.bin -terms DMA --modify
