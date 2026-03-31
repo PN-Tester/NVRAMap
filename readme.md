@@ -7,7 +7,7 @@ There are two analysis modes:
 The tool is vendor agnostic and works against most modern UEFI implementations. Use it to find mapping for specific terms (DMA, Intel, SecureBoot, etc.) or to dump all possible mappings
 
 # Demo (mode 1 - EFI Settings to NVRAM analysis)
-![](https://github.com/PN-Tester/NVRAMap/blob/main/EFI%20TO%20NVRAM.PNG)
+![](https://github.com/PN-Tester/NVRAMap/blob/main/EFI%20to%20NVRAM.PNG))
 
 # Demo (mode 2 - NVRAM to EFI Settings analysis)
 ![](https://github.com/PN-Tester/NVRAMap/blob/main/NVRAM%20TO%20EFI.PNG)
