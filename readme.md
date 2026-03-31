@@ -3,7 +3,7 @@ This tool allows the operator to map possible control values in NVRAM to a given
 There are two analysis modes:
 - Mode 1 : Map EFI program settings to NVRAM Variable/Values
 - Mode 2 : Map NVRAM variable to EFI program settings
-- 
+  
 The tool is vendor agnostic and works against most modern UEFI implementations.
 
 # Usage
