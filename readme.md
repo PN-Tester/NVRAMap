@@ -4,7 +4,7 @@ There are two analysis modes:
 - Mode 1 : Map EFI program settings to NVRAM Variable/Values
 - Mode 2 : Map NVRAM variable to EFI program settings
   
-The tool is vendor agnostic and works against most modern UEFI implementations.
+The tool is vendor agnostic and works against most modern UEFI implementations. Use it to find mapping for specific terms (DMA, Intel, SecureBoot, etc.) or to dump all possible mappings
 
 # Demo (mode 1 - EFI Settings to NVRAM analysis)
 ![](https://github.com/PN-Tester/NVRAMap/blob/main/EFI%20TO%20NVRAM.PNG)
