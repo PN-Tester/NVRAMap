@@ -6,6 +6,8 @@ There are two analysis modes:
   
 The tool is vendor agnostic and works against most modern UEFI implementations. The intended usage is to allow the user to quickly find and modify values related to important security settings when conducting physical penetration tests against UEFI firmware dumps. Once a setting is mapped, it's value can be overwritten and the resultant patched NVRAM can be flashed back onto the target computer's EEPROM chip to control firmware behaviour without requiring access to the pre-boot GUI or triggering a BitLocker recovery.
 
+To use this tool, extract the firmware from target EEPROM chip. Using UEFITool, select "Extract Body" option to extract the raw NVRAM from your dump, and the efi program you are interested in. Pass both extracted files to NVRAMap and choose one of the two analysis modes to begin automatic relationship discovery.
+
 # Demo (mode 1 - EFI Settings to NVRAM analysis)
 ![](https://github.com/PN-Tester/NVRAMap/blob/main/EFI%20to%20NVRAM.PNG))
 
