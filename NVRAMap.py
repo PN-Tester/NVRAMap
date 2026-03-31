@@ -1207,7 +1207,7 @@ EXAMPLE USAGE:\n
             # Reprint table with current values
             print_settings_table(settings, stores, title="Current Values")
             try:
-                raw = input("  Select # (or 'done'/'q'): ").strip().lower()
+                raw = input("  >> ").strip().lower()
             except (EOFError, KeyboardInterrupt):
                 raw = "q"
 
@@ -1241,7 +1241,7 @@ EXAMPLE USAGE:\n
                 print(f"  {C_WARN}Warning: outside valid range.{C_RST}")
             if _apply_change(idx, new_val, patched):
                 changes.append(f"[{idx+1}] {s.prompt}  →  {_fmt_value(new_val, s.size)}")
-                print(f"  {C_OK}Staged: {_fmt_value(new_val, s.size)}{C_RST}\n")
+                print(f"  {C_OK}New Value: {_fmt_value(new_val, s.size)}{C_RST}\n")
 
     # Save patched nvram file
     if changes:
