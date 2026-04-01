@@ -413,14 +413,14 @@ def parse_form_package(data: bytes, pkg_offset: int, pkg_len: int,
         elif op == IFR_OP_VARSTORE_EFI and len(opdata) >= 26:
             # EFI_IFR_VARSTORE_EFI layout (UEFI spec):
             #   VarStoreId u16  @ opdata[0]
-            #   Attributes u32  @ opdata[2]
-            #   Size       u16  @ opdata[6]
-            #   Guid      (16)  @ opdata[8]
+            #   Guid      (16)  @ opdata[2]
+            #   Attributes u32  @ opdata[18]
+            #   Size       u16  @ opdata[22]
             #   Name      (var) @ opdata[24]
             vsid  = u16(opdata, 0)
-            attrs = u32(opdata, 2)
-            size  = u16(opdata, 6)
-            g     = guid_str(opdata, 8)
+            g     = guid_str(opdata, 2)
+            attrs = u32(opdata, 18)
+            size  = u16(opdata, 22)
             name  = opdata[24:].rstrip(b'\x00').decode('ascii', errors='replace')
             line  = (f'{indent}VarStoreEfi Guid: {g}, VarStoreId: 0x{vsid:X}, '
                      f'Attributes: 0x{attrs:X}, Size: 0x{size:X}, Name: "{name}"')
