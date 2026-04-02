@@ -608,7 +608,6 @@ def extract_ifr(efi_path: str) -> str:
 
     if not form_pkgs:
         print(f"\n{C_ERR}[!] No form packages found.{C_RST}")
-        print("    Try extracting the Setup module from the firmware with UEFITool first.")
         sys.exit(1)
 
     if not string_pkgs:
