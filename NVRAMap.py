@@ -1649,7 +1649,7 @@ def _probe_var_header(nvram: bytes, guid_pos: int):
 
 
 def _search_nvram_region(nvram: bytes, target: bytes, var_offset: int,
-                          size_bytes: int, var_name: str, live_result, deleted_result):
+                          size_bytes: int, var_name: str, live_result, deleted_result, expected_data_size=None):
     n = len(nvram)
     search_pos = 0
     while search_pos < n - 16:
@@ -1658,6 +1658,9 @@ def _search_nvram_region(nvram: bytes, target: bytes, var_offset: int,
         search_pos = guid_pos + 1
         hdr, name_start = _probe_var_header(nvram, guid_pos)
         if hdr is None: continue
+        if expected_data_size is not None:
+            if guid_pos < 4: continue
+            if u32(nvram, guid_pos - 4) != expected_data_size: continue
         state = nvram[hdr + 2]
         pos = name_start; name_chars = []
         while pos + 1 < n:
@@ -1680,13 +1683,13 @@ def _search_nvram_region(nvram: bytes, target: bytes, var_offset: int,
 
 
 def find_nvram_value(nvram, guid_str_val: str, var_offset: int, size_bits: int,
-                     var_name: str = "") -> Optional[int]:
+                     var_name: str = "", expected_data_size: Optional[int] = None) -> Optional[int]:
     target = _guid_str_to_bytes(guid_str_val)
     size_bytes = max(1, size_bits // 8)
     live_result = deleted_result = None
     for region in (nvram if isinstance(nvram, list) else [nvram]):
         live_result, deleted_result = _search_nvram_region(
-            region, target, var_offset, size_bytes, var_name, live_result, deleted_result)
+            region, target, var_offset, size_bytes, var_name, live_result, deleted_result, expected_data_size)
         if live_result is not None: break
     return live_result if live_result is not None else deleted_result
 
@@ -2143,6 +2146,10 @@ EXAMPLE USAGE:
         if vs and vs.guid and vs.guid != "?":
             s.current_value = find_nvram_value(
                 nvram_bytes, vs.guid, s.var_offset, s.size, var_name=vs.name)
+        if s.current_value is None and vs.size:
+            s.current_value = find_nvram_value(
+                nvram_bytes, vs.guid, s.var_offset, s.size,
+                var_name="", expected_data_size=vs.size)    
 
     print_varstore_map(settings, stores)
     print_settings_table(settings, stores, title=title, oneof_options=oneof_options)
